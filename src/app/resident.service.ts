@@ -2,19 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ResidentService {
-  private  API_URL = "http://localhost:8000";
+  private API_URL = 'http://localhost:8000';
   //export const API_URL = "https://visitor-server-render.onrender.com";
-  
-  constructor(private http: HttpClient) { }
 
-  addResident(data:any){
+  constructor(private http: HttpClient) {}
+
+  addResident(data: any) {
     return this.http.post(`${this.API_URL}/api/v1/users/register`, data);
   }
 
-  getResident(){
+  getResident() {
     return this.http.get(`${this.API_URL}/api/v1/users/getresidents`);
+  }
+  getResidentInvites(creator: any) {
+    return this.http.get(`${this.API_URL}/api/v1/invites/mine/${creator}`);
+  }
+  getDashbaord() {
+    return this.http.get(`${this.API_URL}/api/v1/dash`);
   }
 }

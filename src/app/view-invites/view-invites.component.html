@@ -1,0 +1,65 @@
+<div class="form-group pt-2">
+  <div class="row">
+    <div class="col-md-2">
+      <label htmlFor="hostelFor">Select House Number</label>
+    </div>
+    <div class="col-md-10">
+      <select
+        class="form-control"
+        (change)="onSelectionChange()"
+        [(ngModel)]="selectedItem"
+      >
+        <option [value]="">--- Select House Number ---</option>
+        <option *ngFor="let item of dropdownData" [value]="item.user._id">
+          {{
+            item.user.firstname +
+              " " +
+              item.user.lastname +
+              " House number (" +
+              item.housenumber +
+              ")"
+          }}
+        </option>
+      </select>
+    </div>
+    <br /><br />
+    <table
+      class="table table-sm table-hover"
+      id="dataTable"
+      width="100%"
+      cellspacing="0"
+    >
+      <thead>
+        <tr>
+          <th>Invite Code</th>
+          <th>Guest Name</th>
+          <th>Code Type</th>
+          <th>Date Expected</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody
+        *ngIf="residentsInvites && residentsInvites.length > 0; else noData"
+      >
+        <tr *ngFor="let item of residentsInvites">
+          <td>{{ item.code }}</td>
+          <td>{{ item.guest }}</td>
+          <td>{{ item.codeType }}</td>
+          <td>{{ item.dateExpected | date : "dd/MM/yyyy" }}</td>
+          <td>
+            <p *ngIf="item.status; else pendingText">Cleared</p>
+            <ng-template #pendingText>
+              <p>Pending</p>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #noData>
+      <tr>
+        <td colspan="5">No data available</td>
+      </tr>
+    </ng-template>
+  </div>
+</div>
