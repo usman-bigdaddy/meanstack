@@ -1,0 +1,59 @@
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">First Name</label>
+        <input id="hostelFor" required name="firstname" [(ngModel)]="formData.firstname" placeholder="Enter First Name"
+            class="form-control" />
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">Last Name</label>
+        <input id="Surname" required name="lastname" [(ngModel)]="formData.lastname" placeholder="Enter Last Name"
+            class="form-control" />
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">Email</label>
+        <input id="Surname" required name="email" [(ngModel)]="formData.email" placeholder="Enter Email"
+            class="form-control" />
+    </div>
+    <div>
+        <div class="form-group pt-2">
+            <label htmlFor="hostelFor">Phone Number (Home)</label>
+            <input id="PhoneNumber" required name="phone.home" [(ngModel)]="formData.phone.home" type="text"
+                placeholder="Enter Phone Number" class="form-control" />
+        </div>
+        <div class="form-group pt-2">
+            <label htmlFor="hostelFor">Phone Number (Mobile)</label>
+            <input id="PhoneNumber" required name="phone.mobile" [(ngModel)]="formData.phone.mobile" type="text"
+                placeholder="Enter Phone Number" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">Gender</label>
+        <select id="hostelFor" required name="gender" [(ngModel)]="formData.gender" placeholder="Enter Gender"
+            class="form-control">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">Date of Birth</label>
+        <input id="hostelFor" required name="dob" [(ngModel)]="formData.dob" type="date" placeholder="Enter Gender"
+            class="form-control" />
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">Occupation</label>
+        <input id="hostelFor" required name="occupation" [(ngModel)]="formData.occupation"
+            placeholder="Enter Occupation" class="form-control" />
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">House Number</label>
+        <input id="hostelFor" required name="housenumber" [(ngModel)]="formData.housenumber"
+            placeholder="Enter House Number" class="form-control" />
+    </div>
+    <div class="form-group pt-2">
+        <label htmlFor="hostelFor">NIN</label>
+        <input id="hostelFor" required name="nin" [(ngModel)]="formData.nin" placeholder="Enter NIN"
+            class="form-control" />
+    </div>
+    <button [disabled]="myForm.invalid" class="btn btn-primary" type="submit">Submit</button>
+</form>
